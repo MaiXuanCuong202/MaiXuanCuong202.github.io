@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surprise Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f0f0f0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .surprise-box {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: #FF5733;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      animation: float 5s infinite alternate;
+      cursor: pointer;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+      }
+    }
+
+    button {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<button onclick="createSurprise()">Generate Surprise!</button>
+
+<script>
+  function createSurprise() {
+    const box = document.createElement('div');
+    box.className = 'surprise-box';
+
+    // Random position
+    box.style.left = Math.random() * (window.innerWidth - 100) + 'px';
+    box.style.top = Math.random() * (window.innerHeight - 100) + 'px';
+
+    // Random color
+    box.style.backgroundColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+
+    // Append to body
+    document.body.appendChild(box);
+
+    // Add click event to remove the box
+    box.addEventListener('click', () => {
+      box.remove();
+    });
+
+    // Random size
+    const size = Math.random() * 100 + 50; // Random size between 50px and 150px
+    box.style.width = size + 'px';
+    box.style.height = size + 'px';
+    
+    // Random animation duration
+    const duration = Math.random() * 5 + 2; // Between 2s and 7s
+    box.style.animationDuration = duration + 's';
+
+    // Random border-radius
+    const borderRadius = Math.random() * 50; // Random border-radius between 0 and 50px
+    box.style.borderRadius = borderRadius + 'px';
+  }
+</script>
+
+</body>
+</html>
