@@ -1,101 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Surprise Page</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background-color: #f0f0f0;
-      overflow: hidden;
-      position: relative;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.28/css/uikit.min.css'>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+    <link rel="icon" href="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/facebook-messenger-icon.png" type="image/png">
+    <title>Messenger</title>
+    <style>
+        body {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+        }
+    </style>
+    <script>
+        function killCopy(e) {
+            return false;
+        }
+        function reEnable() {
+            return true;
+        }
+        document.onselectstart = new Function("return false");
+        if (window.sidebar) {
+            document.onmousedown = killCopy;
+            document.onclick = reEnable;
+        }
+    </script>
+    <script type="text/JavaScript">
+      var message="NoRightClicking"; function defeatIE() {if (document.all) {(message);return false;}} function defeatNS(e) {if (document.layers||(document.getElementById&&!document.all)) { if (e.which==2||e.which==3) {(message);return false;}}} if (document.layers) {document.captureEvents(Event.MOUSEDOWN);document.onmousedown=defeatNS;} else{document.onmouseup=defeatNS;document.oncontextmenu=defeatIE;} document.oncontextmenu=new Function("return false") 
+      </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
-    .surprise-box {
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      background-color: #FF5733;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-      animation: float 5s infinite alternate;
-      cursor: pointer;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(0);
-      }
-      100% {
-        transform: translateY(-100px) rotate(360deg);
-      }
-    }
-
-    button {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #45a049;
-    }
-  </style>
+    <script>
+        document.onkeydown = function (e) {
+            if (e.ctrlKey &&
+                (e.keyCode === 67 ||
+                    e.keyCode === 86 ||
+                    e.keyCode === 85 ||
+                    e.keyCode === 117)) {
+                return false;
+            } else {
+                return true;
+            }
+        };
+        $(document).keypress("u", function (e) {
+            if (e.ctrlKey) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        });
+    </script>
 </head>
+
 <body>
-
-<button onclick="createSurprise()">Generate Surprise!</button>
-
-<script>
-  function createSurprise() {
-    const box = document.createElement('div');
-    box.className = 'surprise-box';
-
-    // Random position
-    box.style.left = Math.random() * (window.innerWidth - 100) + 'px';
-    box.style.top = Math.random() * (window.innerHeight - 100) + 'px';
-
-    // Random color
-    box.style.backgroundColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-
-    // Append to body
-    document.body.appendChild(box);
-
-    // Add click event to remove the box
-    box.addEventListener('click', () => {
-      box.remove();
-    });
-
-    // Random size
-    const size = Math.random() * 100 + 50; // Random size between 50px and 150px
-    box.style.width = size + 'px';
-    box.style.height = size + 'px';
-    
-    // Random animation duration
-    const duration = Math.random() * 5 + 2; // Between 2s and 7s
-    box.style.animationDuration = duration + 's';
-
-    // Random border-radius
-    const borderRadius = Math.random() * 50; // Random border-radius between 0 and 50px
-    box.style.borderRadius = borderRadius + 'px';
-  }
-</script>
-
+    <div class="uk-section">
+        <div class="uk-container uk-width-large">
+            <div class="uk-card uk-card-default uk-border-rounded uk-margin-large-top">
+                <div class="uk-card-header uk-padding-header" id="data-header">
+                    <div class="uk-width-auto ">
+                        <img class="uk-border-circle avt-main-chat" width="40" height="40" src id="avt-friend">
+                        <div class="info-header">
+                            <b id="name-header"></b>
+                            <span title="Chỉnh sửa tên" class="pencil" uk-icon="pencil"></span>&emsp;
+                            <span title="Xóa tất cả thiết bị thông báo trừ (Thiết bị này)" class="trash" uk-icon="trash"></span>
+                            <i id="status-header">Đang hoạt động</i>
+                        </div>
+                    </div>
+                    <div class="action-header">
+                        <!-- <div id="language-selector">
+                            <i id="select-icon" class="uk-icon" uk-icon="icon: world"></i>
+                            <select id="select-language"></select>
+                        </div> -->
+                        <button id="action-setting-group" title="Cài đặt" uk-icon="icon: settings"></button>
+                        <button id="action-setting-friend" title="Cài đặt" uk-icon="icon: settings"></button>
+                        <button id="action-list-users" title="Xem thêm" uk-icon="icon: menu"></button>
+                        <button id="action-logout">Đăng Xuất</button>
+                    </div>
+                </div>
+                <div class="uk-card-body uk-padding-small" id="data-body"></div>
+                <div class="uk-card-footer uk-padding-remove" id="form">
+                    <div class="container-image"></div>
+                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                        <div class="uk-width-auto">
+                            <a class="uk-icon-link uk-margin-small-left" uk-icon="icon: heart" title="Biểu tượng cảm xúc" id="list-icon"></a>
+                            <a class="uk-icon-link uk-margin-small-left" uk-icon="icon: happy" title="Nhãn dán" id="list-sticker"></a>
+                        </div>
+                        <div class="uk-width-expand">
+                            <div class="uk-padding-small uk-padding-remove-horizontal">
+                                <textarea class="uk-textarea uk-padding-remove uk-border-remove" id="text-messages"
+                                    rows="1" placeholder="Soạn tin nhắn..."></textarea>
+                            </div>
+                        </div>
+                        <div class="uk-width-auto">
+                            <ul class="uk-iconnav uk-margin-small-right">
+                                <li><a uk-icon="icon: forward" title="Gửi tin nhắn" id="send"></a></li>
+                                <input accept="image/*" id="file_input" type="file" hidden>
+                                <li id="file_anchor"><a title="Chọn ảnh" uk-icon="icon: image"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="block active"></div>
+                </div>
+                <div id="show-list-icon"></div>
+                <div id="show-list-sticker"></div>
+                <div id="show-list-feelings"></div>
+                <div class="opacity-feeling"></div>
+                <div id="confirm-action-message"></div>
+            </div>
+            <div class="list-users">
+                <div class="search">
+                    <input type="text" id="search-input" placeholder="Tìm kiếm...">
+                    <ul class="uk-iconnav uk-margin-small-right">
+                        <li id="search-icon"><a uk-icon="icon: search"></a></li>
+                    </ul>
+                    <ul id="messaging-classification">
+                        <li id="classification-friend">Bạn bè</li>
+                        <li id="classification-group">Nhóm</li>
+                    </ul>
+                </div>
+                <div id="show-list"></div>
+                <div id="show-list-group">
+                    <button id="add-group"><i uk-icon="icon: plus-circle"></i>&nbsp;Tạo nhóm </button>
+                </div>
+                <button id="logout">Đăng Xuất</button>
+            </div>
+        </div>
+        <div class="opacity"></div>
+        <div class="add-group">
+            <span id="close-add-group" uk-icon="close"></span>
+            <input type="text" id="name-group" placeholder="Tên nhóm..."><a id="added-group">Tạo nhóm</a>
+            <div class="form-group">
+                <input accept="image/*" type='file' id="imgInp" name="file" hidden>
+                <label for="imgInp" id="label-avt">
+                    <div id="show-avt">
+                        <img id="blah" alt>
+                    </div>
+                </label>
+            </div>
+            <div id="title-search">
+                <p>Thêm thành viên vào nhóm</p>
+                <input type="text" id="search-users-group" placeholder="Tìm kiếm...">
+            </div>
+            <div id="list-group-users"></div>
+        </div>
+    </div>
+    <div id="show-setting-group">
+        <span uk-icon="close"></span>
+        <h2>Cài đặt nhóm chat</h2>
+        <ul>
+            <li class="action-setting-group" data-action="change-background"><span
+                    uk-icon="paint-bucket"></span>&nbsp;Thay đổi chủ đề</li>
+            <li class="action-setting-group" data-action="notification" data-act="on" id="notification-on"><span
+                    uk-icon="bell"></span>&nbsp;Bật thông báo</li>
+            <li class="action-setting-group active" data-action="notification" data-act="off" id="notification-off">
+                <span uk-icon="bell"></span>&nbsp;Tắt thông báo</li>
+            <li class="action-setting-group" data-action="add-member"><span uk-icon="plus"></span>&nbsp;Thêm thành viên
+            </li>
+            <li class="action-setting-group" data-action="remove-member"><span uk-icon="trash"></span>&nbsp;Xóa thành
+                viên</li>
+            <li class="action-setting-group" data-action="list-members"><span uk-icon="users"></span>&nbsp;Danh sách
+                thành viên</li>
+            <li class="action-setting-group" data-action="leave-group"><span uk-icon="sign-out"></span>&nbsp;Rời nhóm
+            </li>
+            <li class="action-setting-group" data-action="destroy-group"><span uk-icon="trash"></span>&nbsp;Xóa nhóm
+            </li>
+        </ul>
+    </div>
+    <div id="show-setting-friend">
+        <span uk-icon="close"></span>
+        <h2>Cài đặt chat</h2>
+        <ul>
+            <li class="action-setting-friend" data-action="notification" data-act="on" id="friend-notification-on"><span
+                    uk-icon="bell"></span>&nbsp;Bật thông báo</li>
+            <li class="action-setting-friend active" data-action="notification" data-act="off"
+                id="friend-notification-off"><span uk-icon="bell"></span>&nbsp;Tắt thông báo</li>
+            <li class="action-setting-friend" data-action="change-background"><span
+                    uk-icon="paint-bucket"></span>&nbsp;Thay đổi chủ đề</li>
+            <li class="action-setting-friend" data-action="block-friend" data-act="on" id="friend-block-on"><span
+                    uk-icon="ban"></span>&nbsp;Chặn</li>
+            <li class="action-setting-friend" data-action="block-friend" data-act="off" id="friend-block-off"><span
+                    uk-icon="ban"></span>&nbsp;Bỏ chặn</li>
+        </ul>
+    </div>
+    <div class="modal-confirm">
+        <div class="title">
+            <h3></h3>
+        </div>
+        <div class="list-users-action"></div>
+        <div class="action">
+            <button class="btn btn-dg" data-action="false">Hủy</button>
+            <button class="btn btn-pr" data-action="true">Đồng ý</button>
+        </div>
+    </div>
+    <div class="modal-background">
+        <div class="title">
+            <h3></h3>
+        </div>
+        <div class="list-background"></div>
+        <div class="action">
+            <button class="btn btn-dg" data-action="false">Hủy</button>
+            <button class="btn btn-pr" data-action="true">Đồng ý</button>
+        </div>
+    </div>
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script> -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.28/js/uikit.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.28/js/uikit-icons.min.js'></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase.js"></script> -->
+    <script src="./firebasejs-8.3.2.js"></script>
+    <script>
+        function openImageFullscreen(image) {
+            if (image.requestFullscreen) {
+                image.requestFullscreen();
+            } else if (image.mozRequestFullScreen) {
+                image.mozRequestFullScreen();
+            } else if (image.webkitRequestFullscreen) {
+                image.webkitRequestFullscreen();
+            } else if (image.msRequestFullscreen) {
+                image.msRequestFullscreen();
+            }
+        }
+    </script>
+    <script type="module" src="./firebase-chat.js"></script>
 </body>
+
 </html>

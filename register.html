@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Đăng ký</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="auth.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Đăng ký</h2>
+    <form id="register-form">
+      <div class="form-group">
+        <label for="username">Họ và tên</label>
+        <input type="text" id="username" name="username" >
+        <div class="invalid"></div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" >
+        <div class="invalid"></div>
+      </div>
+      <div class="form-group">
+        <label for="password">Mật khẩu</label>
+        <input type="password" id="password" name="password" >
+        <div class="invalid"></div>
+      </div>
+      <div class="form-group">
+        <label for="imgInp">Ảnh đại diện</label>
+        <input accept="image/*" type='file' id="imgInp" name="file"  hidden>
+        <label for="imgInp" id="label-avt">
+          <div id="file-avt">File</div>
+          <div id="show-avt">
+            <img id="blah" alt="">
+          </div>
+        </label>
+        <div class="invalid"></div>
+      </div>
+      <button type="submit">Đăng ký</button>
+	    <a id="login-account">Đã có tài khoản? Đăng nhập</a>
+    </form>
+  </div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase.js"></script>
+<script src="./register.js"></script>
+</html>
