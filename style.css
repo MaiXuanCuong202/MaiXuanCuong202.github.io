@@ -112,6 +112,7 @@ textarea {
   height: 20px;
   max-height: 20px;
   user-select: none;
+  margin: 10px;
 }
 
 .uk-card-body.uk-card-small:active {
@@ -311,19 +312,27 @@ textarea {
 }
 
 #show-list .uk-card-header:hover {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 #show-list-group .uk-card-header:hover {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .friend.active {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .group.active {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .opacity {
@@ -872,10 +881,11 @@ video {
 }
 
 #messaging-classification {
-  margin: 0 !important;
+  margin: 0 5px !important;
   padding: 0 !important;
   display: flex;
   justify-content: space-around;
+  gap: 5px;
 }
 
 #messaging-classification li {
@@ -905,7 +915,7 @@ video {
 
 #add-group {
   display: flex;
-  width: 100%;
+  width: 90%;
   margin-top: 10px;
   text-align: center;
   justify-content: center;
@@ -916,7 +926,11 @@ video {
   font-size: 12px;
   color: #6c6c6c;
   font-weight: bold;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  /* margin: auto; */
+  margin: 15px auto;
 }
 
 #add-group:hover {
