@@ -456,7 +456,7 @@ textarea {
   opacity: 0;
   transform: translateY(300%);
   transition: transform .8s ease-in-out, opacity .3s ease-in-out;
-  top: 0;
+  /* top: 0; */
 }
 
 #show-list-feelings.active {
